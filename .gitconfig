@@ -1,0 +1,22 @@
+[user]
+	email = <email-address>
+	name = <username>
+[push]
+	default = simple
+[alias]
+	co = checkout
+	br = branch
+	c = commit -m
+	st = status
+	sba = show-branch --color=always -a --more=10 --no-name
+	sban = show-branch --color=always -a --more=10
+	a = add
+	aa = add .
+	po = pull origin
+	puo = push origin
+	rl = reflog
+	lp = log --pretty=format:\"%h - %an, %ad : %s\"
+	lpfh = log --pretty=format:\"%H - %an, %ad : %s\"
+	fo = fetch origin -p
+	aad = add . --dry-run
+	last = log -1 HEAD
