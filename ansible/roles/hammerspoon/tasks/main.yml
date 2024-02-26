@@ -1,0 +1,14 @@
+---
+- name: ensure .hammerspoons directories exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.hammerspoon/Spoons/Shiftit.spoon/"
+    recurse: true
+    state: directory
+
+- name: copy files
+  with_items:
+    - ".hammerspoon/init.lua"
+    - ".hammerspoon/Spoons/Shiftit.spoon/init.lua"
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"

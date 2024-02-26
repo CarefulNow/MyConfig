@@ -1,0 +1,22 @@
+---
+- name: ensure .config directories exists
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/user"
+    recurse: true
+    state: directory
+
+- name: copy configuration files
+  with_items:
+    - .config/nvim/lua/init.lua
+    - .config/nvim/lua/user/01-plugins.lua
+    - .config/nvim/lua/user/02-theme.lua
+    - .config/nvim/lua/user/03-formatting.lua
+    - .config/nvim/lua/user/04-lsp-configuration.lua
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+
+- name: setup nvim with configuration
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

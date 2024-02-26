@@ -1,0 +1,62 @@
+# -- Compiled Source ------------------------------------------------
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+
+# -- Packages -------------------------------------------------------
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+## -- Logs and Databases --------------------------------------------
+
+*.log
+*.sqlite
+
+
+## -- OS Generated Files --------------------------------------------
+
+.DS_STORE
+.DS_STORE?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+dump.rdp
+.vscode
+
+
+## -- Intellij ------------------------------------------------------
+
+.idea/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+
+
+## -- Misc ----------------------------------------------------------
+
+config.*-local.yml
+*.env
+bin/circleci-test-build
+.tool-versions
+.settings
+.classpath
+.project
+.secrets
+spell/
+.factorypath

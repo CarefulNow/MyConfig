@@ -1,0 +1,10 @@
+---
+- name: copy gitconfigs
+  with_items:
+    - .gitconfig
+    - .gitconfig_me
+    - .gitconfig_work
+    - .gitignore_global
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"

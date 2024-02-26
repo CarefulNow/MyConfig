@@ -1,0 +1,43 @@
+---
+taps:
+- remotemobprogramming/brew
+
+casks:
+- 1password-cli
+- alacritty
+- firefox
+
+packages:
+- amass
+- ansible
+- asdf
+- bat
+- codespell
+- colima
+- curl
+- docker
+- docker-compose
+- gh
+- gnupg
+- gnu-tar
+- go
+- gpgme
+- graphviz
+- guile
+- hopenpgp-tools
+- jq
+- luarocks
+- make
+- maven
+- neovim
+- pinentry-mac
+- postgresql@16
+- remotemobprogramming/brew/mob
+- rust
+- gpgme
+- tldr
+- tmux
+- wget
+- wrk
+- ykman
+- yubikey-personalization

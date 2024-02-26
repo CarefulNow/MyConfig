@@ -1,0 +1,25 @@
+---
+- name: ensure .gnupg directories exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.gnupg"
+    recurse: true
+    state: directory
+
+- name: copy gpg-agent.conf
+  with_items:
+    - .gnupg/gpg-agent.conf
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+
+- name: create stubs for gpg-keys
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: gpg-connect-agent "scd serialno" "learn --force" /bye
+
+- name: fetch public key from keyservers
+  with_items:
+    - 369467E628372206
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: "gpg --recv {{ item }}"

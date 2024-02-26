@@ -1,0 +1,13 @@
+---
+- name: copy .tmux.conf file
+  with_items:
+    - .tmux.conf
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+
+- name: clone tmux plugin manager (tpm)
+  ansible.builtin.git:
+    depth: 1
+    repo: ssh://git@github.com/tmux-plugins/tpm.git
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"

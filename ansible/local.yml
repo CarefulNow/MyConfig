@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  roles:
+    - { role: shared-config, tags: [shared-config] }
+    - { role: git, tags: [git] }
+    - { role: homebrew, tags: [homebrew] }
+    - { role: gpg, tags: [gpg] }
+    - { role: nvim, tags: [nvim] }
+    - { role: zsh, tags: [zsh] }
+    - { role: alacritty, tags: [alacritty] }
+    - { role: hammerspoon, tags: [hammerspoon] }
+    - { role: java, tags: [java] }
+    - { role: tmux, tags: [tmux] }

@@ -1,0 +1,50 @@
+[core]
+    excludesfile = ~/.gitignore_global
+	editor       = /opt/homebrew/bin/nvim
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+    insteadOf = https://git::@github.com/
+; For in-case there is an unreasonably stupid requirement to use https instead of ssh
+; [url "https://github.com/"]
+;     insteadOf = ssh://git@github.com/
+;     insteadOf = https://git::@github.com/
+;     insteadOf = git@github.com:
+[alias]
+	a       = add
+	aa      = add .
+	br      = branch
+	c       = commit -m
+	co      = checkout
+	dry     = add . --dry-run
+	fo      = fetch origin -p
+	last    = log -1 HEAD
+	locate  = "!f() { git ls-tree -r --name-only HEAD | grep -i --color -E $1 - ; } ; f"
+	lp      = log --pretty=format:\"%h - %an, %ad : %s\"
+	lpfh    = log --pretty=format:\"%H - %an, %ad : %s\"
+	ls      = ls-files
+	po      = pull origin
+	puo     = push origin
+	puof    = push origin --force-with-lease
+	rl      = reflog
+	sba     = show-branch --color=always -a --more=10 --no-name
+	sban    = show-branch --color=always -a --more=10
+	st      = status
+	unstage = reset HEAD
+[credential "https://github.com/"]
+;   Have an empty "helper" to break chain of previously configured global credentials
+;   see: https://github.com/cli/cli/issues/3796#issuecomment-1065150465
+	helper =
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com/"]
+;   Have an empty "helper" to break chain of previously configured global credentials
+;   see: https://github.com/cli/cli/issues/3796#issuecomment-1065150465
+	helper =
+	helper = !/usr/local/bin/gh auth git-credential
+[includeIf "gitdir:~/coding/"]
+    path = ~/.gitconfig_me
+[includeIf "gitdir:~/projects/"]
+    path = ~/.gitconfig_work

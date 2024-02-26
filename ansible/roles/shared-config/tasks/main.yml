@@ -1,0 +1,6 @@
+---
+- name: ensure .config directory exists
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config"
+    recurse: true
+    state: directory

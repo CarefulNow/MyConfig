@@ -1,0 +1,25 @@
+---
+- name: add asdf plugin
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: asdf plugin-add java https://github.com/halcyon/asdf-java.git
+    creates: "{{ lookup('env', 'HOME') }}/.asdf/plugins/java/README.md"
+
+- name: install java versions
+  with_items:
+    - 17
+    - 21
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: asdf install java latest:temurin-{{ item }}
+    creates: "{{ lookup('env', 'HOME') }}/.asdf/installs/java/temurin-{{ item }}/release"
+
+- name: asdf global java version 21
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: asdf global java latest:temurin-21
+
+- name: copy dotfile
+  ansible.builtin.copy:
+    src: "files/.asdfrc"
+    dest: "{{ lookup('env', 'HOME') }}/.asdfrc"

@@ -1,0 +1,6 @@
+- name: copy .zshrc file
+  with_items:
+    - .zshrc
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"

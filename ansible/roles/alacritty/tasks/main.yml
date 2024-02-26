@@ -1,0 +1,13 @@
+---
+- name: ensure .config directories exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config/alacritty"
+    recurse: true
+    state: directory
+
+- name: copy configuration files
+  with_items:
+    - .config/alacritty/alacritty.toml
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
