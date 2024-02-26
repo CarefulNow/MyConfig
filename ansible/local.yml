@@ -11,3 +11,4 @@
     - { role: hammerspoon, tags: [hammerspoon] }
     - { role: java, tags: [java] }
     - { role: tmux, tags: [tmux] }
+    - { role: colima, tags: [colima] }

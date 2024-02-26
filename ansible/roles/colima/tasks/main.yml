@@ -1,0 +1,13 @@
+---
+- name: ensure .colima directories exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.colima/_templates/"
+    recurse: true
+    state: directory
+
+- name: copy default colima config
+  with_items:
+    - .colima/_templates/default.yaml
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
