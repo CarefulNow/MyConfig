@@ -1,0 +1,5 @@
+---
+- name: enable autostart on login for displaylink
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: defaults write com.displaylink.DisplayLinkUserAgent AppAutostart 1

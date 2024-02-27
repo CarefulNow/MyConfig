@@ -5,13 +5,19 @@ taps:
 casks:
 - 1password-cli
 - alacritty
+#- displaylink
 - firefox
+- karabiner-elements
+- jetbrains-toolbox
+- obsidian
+#- slack
 
 packages:
 - amass
 - ansible
 - asdf
 - bat
+- cmake
 - codespell
 - colima
 - curl
@@ -26,10 +32,12 @@ packages:
 - guile
 - hopenpgp-tools
 - jq
+- kubectl
 - luarocks
 - make
 - maven
 - neovim
+- nerdctl
 - pinentry-mac
 - postgresql@16
 - remotemobprogramming/brew/mob
@@ -41,3 +49,4 @@ packages:
 - wrk
 - ykman
 - yubikey-personalization
+- zig

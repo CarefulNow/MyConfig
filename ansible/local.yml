@@ -12,3 +12,5 @@
     - { role: java, tags: [java] }
     - { role: tmux, tags: [tmux] }
     - { role: colima, tags: [colima] }
+    - { role: displaylink, tags: [displaylink] }
+    - { role: karabiner, tags: [karabiner] }

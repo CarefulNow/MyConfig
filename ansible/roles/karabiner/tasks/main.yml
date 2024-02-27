@@ -1,0 +1,13 @@
+---
+- name: ensure .config/karabiner directory exists
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config/karabiner"
+    recurse: true
+    state: directory
+
+- name: copy karabiner.json configuration
+  with_items:
+    - .config/karabiner/karabiner.json
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
