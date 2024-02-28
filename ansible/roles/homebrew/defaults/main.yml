@@ -5,7 +5,7 @@ taps:
 casks:
 - 1password-cli
 - alacritty
-#- displaylink
+- displaylink
 - firefox
 - karabiner-elements
 - jetbrains-toolbox
@@ -37,7 +37,6 @@ packages:
 - make
 - maven
 - neovim
-- nerdctl
 - pinentry-mac
 - postgresql@16
 - remotemobprogramming/brew/mob

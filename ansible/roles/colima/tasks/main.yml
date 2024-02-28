@@ -12,7 +12,7 @@
     src: "files/{{ item }}"
     dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
 
-- name: ensure colima is the selected docker context
+- name: colima install nerdctl
   ansible.builtin.command:
     chdir: "{{ lookup('env', 'HOME') }}"
-    cmd: docker context use colima
+    cmd: colima nerdctl install
