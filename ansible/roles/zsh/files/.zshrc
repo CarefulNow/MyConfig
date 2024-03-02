@@ -97,6 +97,10 @@ gpgconf --launch gpg-agent
 PROMPT='${PWD/#$HOME/~} $(git_prompt_string)$ '
 
 
+# ASDF Configuration ----------------------------------------------
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+
 # Git Configuration -----------------------------------------------
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_colour%}"
