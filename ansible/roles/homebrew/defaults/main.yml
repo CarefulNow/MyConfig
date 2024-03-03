@@ -29,6 +29,7 @@ packages:
 - go
 - gpgme
 - graphviz
+- grep
 - guile
 - hopenpgp-tools
 - jq

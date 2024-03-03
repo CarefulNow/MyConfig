@@ -7,6 +7,7 @@
     - { role: git, tags: [git] }
     - { role: nvim, tags: [nvim] }
     - { role: zsh, tags: [zsh] }
+    - { role: ssh, tags: [ssh] }
     - { role: alacritty, tags: [alacritty] }
     - { role: hammerspoon, tags: [hammerspoon] }
     - { role: asdf, tags: [asdf] }

@@ -1,0 +1,19 @@
+---
+- name: ensure .ssh directory exists
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.ssh"
+    recurse: true
+    state: directory
+
+- name: create ssh public key from yubikey
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: ssh-add -L | grep "cardno:$(ykman list --serials | awk '{ len=length($0); res=""; for (i=0;i<=len;i++) { res=substr($0,len-i+1,1) res; if (i > 0 && i < len && i % 3 == 0) { res = "_" res } }; print res }')" > "{{ lookup('env', 'HOME') }}/.ssh/id_rsa_yubikey.pub"
+    creates: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa_yubikey.pub"
+
+- name: create ssh config file
+  with_items:
+    - .ssh/config
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"

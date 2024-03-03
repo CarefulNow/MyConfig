@@ -85,6 +85,7 @@ alias vim=nvim
 alias c='clear; ls -al'
 alias sz='source ~/.zshrc'
 alias setu='git push --set-upstream origin $(git name-rev --name-only --no-undefined --always HEAD)'
+alias grep=ggrep
 
 
 # PGP configuration -----------------------------------------------
