@@ -100,6 +100,7 @@ PROMPT='${PWD/#$HOME/~} $(git_prompt_string)$ '
 
 # ASDF Configuration ----------------------------------------------
 . $(brew --prefix asdf)/libexec/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 
 # Git Configuration -----------------------------------------------

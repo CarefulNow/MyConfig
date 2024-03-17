@@ -7,7 +7,7 @@
 
 - name: copy configuration files
   with_items:
-    - .config/nvim/lua/init.lua
+    - .config/nvim/init.lua
     - .config/nvim/lua/user/01-plugins.lua
     - .config/nvim/lua/user/02-theme.lua
     - .config/nvim/lua/user/03-formatting.lua

@@ -1,0 +1,12 @@
+---
+- name: set key repeat to max
+  community.general.osx_defaults:
+    key: KeyRepeat
+    type: int
+    value: 2
+
+- name: set initial key repeat delay to min
+  community.general.osx_defaults:
+    key: InitialKeyRepeat
+    type: int
+    value: 15

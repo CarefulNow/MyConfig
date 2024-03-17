@@ -30,7 +30,7 @@ require("nvim-lsp-installer").setup({
 	"tflint",                         --terraform linting
 	"tsserver",                       --Typescript
 	"lemminx",                        --XML
-        "yamlls"                          --YAML
+    "yamlls"                          --YAML
     },
     ui = {
         icons = {
