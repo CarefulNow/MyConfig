@@ -1,3 +1,9 @@
+- name: Install Oh My ZSH
+  ansible.builtin.command:
+    chdir: "{{ lookup('env', 'HOME') }}"
+    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
+
 - name: copy .zshrc file
   with_items:
     - .zshrc
