@@ -15,15 +15,16 @@
   with_items:
     - 17
     - 21
+    - 22
   ansible.builtin.command:
     chdir: "{{ lookup('env', 'HOME') }}"
     cmd: asdf install java latest:temurin-{{ item }}
     creates: "{{ lookup('env', 'HOME') }}/.asdf/installs/java/temurin-{{ item }}/release"
 
-- name: asdf global java version 21
+- name: asdf global java version 22
   ansible.builtin.command:
     chdir: "{{ lookup('env', 'HOME') }}"
-    cmd: asdf global java latest:temurin-21
+    cmd: asdf global java latest:temurin-22
 
 - name: install python versions
   with_items:
