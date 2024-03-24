@@ -38,12 +38,12 @@
 ;   Have an empty "helper" to break chain of previously configured global credentials
 ;   see: https://github.com/cli/cli/issues/3796#issuecomment-1065150465
     helper =
-    helper = !/usr/homebrew/bin/gh auth git-credential
+    helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com/"]
 ;   Have an empty "helper" to break chain of previously configured global credentials
 ;   see: https://github.com/cli/cli/issues/3796#issuecomment-1065150465
     helper =
-    helper = !/usr/homebrew/bin/gh auth git-credential
+    helper = !/opt/homebrew/bin/gh auth git-credential
 [includeIf "gitdir:~/coding/"]
     path = ~/.gitconfig_me
 [includeIf "gitdir:~/projects/"]
