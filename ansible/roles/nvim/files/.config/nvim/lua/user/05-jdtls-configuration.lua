@@ -87,13 +87,18 @@ local function get_jdtls_paths()
         --
         -- This example assume you are using sdkman: https://sdkman.io
         {
-            name = 'Java-17',
-            path = vim.fn.expand('~/.asdf/installs/java/temurin-17.0.10+7'),
+            name = 'JavaSE-17',
+            path = vim.fn.expand('~/.asdf/installs/java/temurin-17.0.10+7/'),
         },
         {
-            name = 'Java-21',
-            path = vim.fn.expand('~/.asdf/installs/java/temurin-21.0.2+13.0.LTS'),
+            name = 'JavaSE-21',
+            path = vim.fn.expand('~/.asdf/installs/java/temurin-21.0.2+13.0.LTS/'),
         },
+        -- jdtls doesn't support java 22 yet
+        --{
+        --    name = 'JavaSE-22',
+        --    path = vim.fn.expand('~/.asdf/installs/java/temurin-22.0.0+36/'),
+        --}
     }
 
     cache_vars.paths = path
