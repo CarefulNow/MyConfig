@@ -25,7 +25,7 @@ require('mason-lspconfig').setup({
 		"jsonls",                         --json
 		"jdtls",                          --java
 		"java-test",                      --more java
-		"java-debug-adapter",             --even more java
+		"java-debug-adapter",             --even-more-java
 		"tsserver",                       --javascript
 		"kotlin_language_server",         --Kotlin
 		"texlab",                         --latex
@@ -33,10 +33,8 @@ require('mason-lspconfig').setup({
 		"perlnavigator",                  --perl
 		"puppet",                         --puppet
 		"jedi_language_server",           --python
-		"solargraph",                     --ruby
 		"rust_analyzer",                  --rust
 		"sqlls",                          --sql
-		"sumneko_lua",                    --lua
 		"taplo",                          --TOML
 		"terraformls",                    --terraform
 		"tflint",                         --terraform linting
@@ -46,11 +44,6 @@ require('mason-lspconfig').setup({
 	},
 	handlers = {
 		lsp_zero.default_setup,
+		jdtls = lsp_zero.noop,
 	},
 })
---
---local config = {
---	cmd = {'/path/to/jdt-language-server/bin/jdtls'},
---	root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
---}
---require('jdtls').start_or_attach(config)

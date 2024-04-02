@@ -9,7 +9,7 @@
     name: "{{ taps }}"
 
 - name: install casks
-  community.general.homebrew:
+  community.general.homebrew_cask:
     name: "{{ casks }}"
     install_options: cask
     state: present

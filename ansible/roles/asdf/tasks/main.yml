@@ -37,7 +37,7 @@
 - name: asdf global python version 3.12.2
   ansible.builtin.command:
     chdir: "{{ lookup('env', 'HOME') }}"
-    cmd: asdf install python 3.12.2
+    cmd: asdf global python 3.12.2
 
 - name: copy dotfile
   ansible.builtin.copy:

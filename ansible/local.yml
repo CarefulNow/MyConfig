@@ -3,7 +3,7 @@
   roles:
     - { role: shared-config, tags: [shared-config] }
     - { role: homebrew, tags: [homebrew] }
-    - { role: gpg, tags: [gpg] }
+#    - { role: gpg, tags: [gpg] }
     - { role: git, tags: [git] }
     - { role: nvim, tags: [nvim] }
     - { role: zsh, tags: [zsh] }

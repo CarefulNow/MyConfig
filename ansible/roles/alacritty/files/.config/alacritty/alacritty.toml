@@ -1,3 +1,6 @@
+[window]
+option_as_alt="Both"
+
 [[keyboard.bindings]]
 chars = "#"
 key = "Key3"

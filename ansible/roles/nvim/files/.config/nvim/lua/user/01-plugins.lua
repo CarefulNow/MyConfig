@@ -17,7 +17,22 @@ return require('packer').startup(function(use)
 
   -- Themes --
   use {'dracula/vim', as = 'dracula'}
-  
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+  }
+  use("nvim-treesitter/nvim-treesitter-context")
+
   -- Markdown plugins --
   -- Auto generate markdown table of contents
   use 'mzlogin/vim-markdown-toc'
@@ -33,12 +48,15 @@ return require('packer').startup(function(use)
 
       -- LSP Support
       {'neovim/nvim-lspconfig'},
+      {'mfussenegger/nvim-jdtls'},
+      {'mfussenegger/nvim-dap'},
+      {'nvim-neotest/nvim-nio'},
+      {'rcarriga/nvim-dap-ui'},
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'L3MON4D3/LuaSnip'},
-      {'mfussenegger/nvim-jdtls'},
     }
   }
 
@@ -48,4 +66,3 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
