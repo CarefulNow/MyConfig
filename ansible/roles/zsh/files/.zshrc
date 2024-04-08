@@ -68,6 +68,7 @@ setopt complete_in_word # Allow completion from within a word/phrase
 unsetopt menu_complete # do not autoselect the first completion entry
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
 ## Correction
 setopt correct # spelling correction for commands
@@ -102,6 +103,9 @@ PROMPT='${PWD/#$HOME/~} $(git_prompt_string)$ '
 . $(brew --prefix asdf)/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
 
+
+# Rust Configuration ----------------------------------------------
+. "$HOME/.cargo/env"
 
 # Git Configuration -----------------------------------------------
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"

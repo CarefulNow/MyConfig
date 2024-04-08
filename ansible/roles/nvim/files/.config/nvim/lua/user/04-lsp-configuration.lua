@@ -29,7 +29,6 @@ require('mason-lspconfig').setup({
 		"tsserver",                       --javascript
 		"kotlin_language_server",         --Kotlin
 		"texlab",                         --latex
-		"remark_ls",                      --markdown
 		"perlnavigator",                  --perl
 		"puppet",                         --puppet
 		"jedi_language_server",           --python
@@ -45,5 +44,12 @@ require('mason-lspconfig').setup({
 	handlers = {
 		lsp_zero.default_setup,
 		jdtls = lsp_zero.noop,
+                rust_analyzer = lsp_zero.noop,
 	},
 })
+
+vim.g.rustaceanvim = {
+    server = {
+        capabilities = lsp_zero.get_capabilities()
+    },
+}

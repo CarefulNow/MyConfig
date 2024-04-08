@@ -37,6 +37,12 @@ return require('packer').startup(function(use)
   -- Auto generate markdown table of contents
   use 'mzlogin/vim-markdown-toc'
 
+  use {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- recommended....
+    ft = { 'rust' },
+  }
+
   -- LSP Installer
   use {
     'VonHeikemen/lsp-zero.nvim',

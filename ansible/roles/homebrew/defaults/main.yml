@@ -18,6 +18,7 @@ packages:
 - amass
 - ansible
 - asdf
+- aws
 - bat
 - codespell
 - colima
@@ -43,7 +44,7 @@ packages:
 - postgresql@16
 - remotemobprogramming/brew/mob
 - rg
-- rust
+- rustup-init
 - gpgme
 - tldr
 - tmux

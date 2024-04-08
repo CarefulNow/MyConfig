@@ -12,6 +12,8 @@
     - .config/nvim/lua/user/02-theme.lua
     - .config/nvim/lua/user/03-formatting.lua
     - .config/nvim/lua/user/04-lsp-configuration.lua
+    - .config/nvim/lua/user/05-jdtls-configuration.lua
+    - .config/nvim/lua/user/06-telescope.lua
   ansible.builtin.copy:
     src: "files/{{ item }}"
     dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
