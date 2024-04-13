@@ -1,6 +1,7 @@
 ---
 taps:
 - remotemobprogramming/brew
+- homebrew/cask-fonts
 
 casks:
 - 1password-cli
@@ -33,6 +34,7 @@ packages:
 - graphviz
 - grep
 - guile
+- homebrew/cask-fonts/font-courier-prime-code
 - hopenpgp-tools
 - jq
 - kubectl

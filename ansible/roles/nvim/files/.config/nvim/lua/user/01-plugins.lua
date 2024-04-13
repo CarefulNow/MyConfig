@@ -1,74 +1,77 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+return require('lazy').setup({
+    -- Packer can manage itself --
+    --use 'wbthomason/packer.nvim'
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself --
-  use 'wbthomason/packer.nvim'
+    -- Themes --
+    {'folke/tokyonight.nvim'},
 
-  -- Themes --
-  use {'folke/tokyonight.nvim'}
+    {
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.6',
+        -- or                            , branch = '0.1.x',
+        dependencies = { {'nvim-lua/plenary.nvim'} }
+    },
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.6',
-    -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    },
+    {'nvim-treesitter/nvim-treesitter-context'},
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
-  }
-  use("nvim-treesitter/nvim-treesitter-context")
+    -- Markdown plugins --
+    -- Auto generate markdown table of contents
+    --use 'mzlogin/vim-markdown-toc'
 
-  -- Markdown plugins --
-  -- Auto generate markdown table of contents
-  use 'mzlogin/vim-markdown-toc'
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- recommended....
+        ft = { 'rust' },
+    },
 
-  use {
-    'mrcjkb/rustaceanvim',
-    version = '^4', -- recommended....
-    ft = { 'rust' },
-  }
+    {
+        'https://gitlab.com/code-stats/code-stats-vim.git',
+        dependencies = {
+            {'nvim-lualine/lualine.nvim'},
+            {'nvim-tree/nvim-web-devicons'},
+        }
+    },
 
-  -- LSP Installer
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    requires = {
-      --- Uncomment the two plugins below if you want to manage the language servers from neovim
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+    -- LSP Installer
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        dependencies = {
+            --- Uncomment the two plugins below if you want to manage the language servers from neovim
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'mfussenegger/nvim-jdtls'},
-      {'mfussenegger/nvim-dap'},
-      {'nvim-neotest/nvim-nio'},
-      {'rcarriga/nvim-dap-ui'},
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'mfussenegger/nvim-jdtls'},
+            {'mfussenegger/nvim-dap'},
+            {'nvim-neotest/nvim-nio'},
+            {'rcarriga/nvim-dap-ui'},
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'L3MON4D3/LuaSnip'},
-    }
-  }
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'L3MON4D3/LuaSnip'},
+        }
+    },
+})
