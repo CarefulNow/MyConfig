@@ -11,7 +11,7 @@ telescope.setup {
             "^.git/",
         },
     },
-    picrets = {
+    pickers = {
         find_files = {
             hidden = true,
         },

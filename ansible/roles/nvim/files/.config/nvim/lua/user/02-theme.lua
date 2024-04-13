@@ -2,6 +2,6 @@
 -- use dracula colorscheme
 vim.cmd [[
   syntax enable
-  colorscheme dracula
+  colorscheme tokyonight-night
 ]]
 

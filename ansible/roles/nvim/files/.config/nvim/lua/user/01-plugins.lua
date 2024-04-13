@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Themes --
-  use {'dracula/vim', as = 'dracula'}
+  use {'folke/tokyonight.nvim'}
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.6',
