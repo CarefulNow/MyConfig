@@ -6,6 +6,25 @@ chars = "#"
 key = "Key3"
 mods = "Alt"
 
+[font]
+size = 16
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Italic"
+
 # TokyoNight Alacritty Colors
 # Default colors
 [colors.primary]

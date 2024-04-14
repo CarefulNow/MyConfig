@@ -34,7 +34,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 ## Allow JDK's to be picked up in non cask install location
 ## look at setting again if JDK's aren't shimmed correctly by asdf
 ## export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-export PATH="$(go env GOPATH)/bin:/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:$(go env GOPATH)/bin:$PATH"
 ## Add Homebrew to path etc
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

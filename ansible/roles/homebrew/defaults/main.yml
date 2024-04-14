@@ -34,7 +34,7 @@ packages:
 - graphviz
 - grep
 - guile
-- homebrew/cask-fonts/font-courier-prime-code
+- homebrew/cask-fonts/font-caskaydia-cove-nerd-font
 - hopenpgp-tools
 - jq
 - kubectl
