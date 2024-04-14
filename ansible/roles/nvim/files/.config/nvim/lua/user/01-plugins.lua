@@ -33,7 +33,12 @@ return require('lazy').setup({
         end,
     },
     {'nvim-treesitter/nvim-treesitter-context'},
-
+    {
+        'mbbill/undotree',
+        config = function()
+            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        end,
+    },
     -- Markdown plugins --
     -- Auto generate markdown table of contents
     --use 'mzlogin/vim-markdown-toc'
