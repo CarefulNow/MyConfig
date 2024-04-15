@@ -44,6 +44,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 setopt auto_cd
 setopt cdablevarS
 setopt pushd_ignore_dups
+setopt globdots
 
 ## Basic
 setopt no_beep
