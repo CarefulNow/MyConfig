@@ -8,12 +8,24 @@
 - name: copy configuration files
   with_items:
     - .config/nvim/init.lua
-    - .config/nvim/lua/user/01-plugins.lua
-    - .config/nvim/lua/user/02-theme.lua
-    - .config/nvim/lua/user/03-formatting.lua
-    - .config/nvim/lua/user/04-lsp-configuration.lua
-    - .config/nvim/lua/user/05-jdtls-configuration.lua
-    - .config/nvim/lua/user/06-telescope.lua
+    - .config/nvim/lua/carefulnow/init.lua
+    - .config/nvim/lua/carefulnow/autocmd.lua
+    - .config/nvim/lua/carefulnow/global.lua
+    - .config/nvim/lua/carefulnow/keymap.lua
+    - .config/nvim/lua/carefulnow/lazy.lua
+    - .config/nvim/lua/carefulnow/set.lua
+    - .config/nvim/lua/carefulnow/plugins/code-stats.lua
+    - .config/nvim/lua/carefulnow/plugins/diffview.lua
+    - .config/nvim/lua/carefulnow/plugins/gitsigns.lua
+    - .config/nvim/lua/carefulnow/plugins/lsp-zero.lua
+    - .config/nvim/lua/carefulnow/plugins/neo-tree.lua
+    - .config/nvim/lua/carefulnow/plugins/telescope.lua
+    - .config/nvim/lua/carefulnow/plugins/todo-comments.lua
+    - .config/nvim/lua/carefulnow/plugins/tokyonight.lua
+    - .config/nvim/lua/carefulnow/plugins/undotree.lua
+    - .config/nvim/lua/carefulnow/plugins/vim-markdown-toc.lua
+    - .config/nvim/lua/carefulnow/plugins/which-key.lua
+
   ansible.builtin.copy:
     src: "files/{{ item }}"
     dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
@@ -21,4 +33,5 @@
 - name: setup nvim with configuration
   ansible.builtin.command:
     chdir: "{{ lookup('env', 'HOME') }}"
-    cmd: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    cmd: nvim --headless "+Lazy! sync" +qa
+

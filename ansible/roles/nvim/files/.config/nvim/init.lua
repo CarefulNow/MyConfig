@@ -1,6 +1,2 @@
-require('user/01-plugins')
-require('user/02-theme')
-require('user/03-formatting')
-require('user/04-lsp-configuration')
-require('user/05-jdtls-configuration')
-require('user/06-telescope')
+require('carefulnow')
+
