@@ -24,8 +24,6 @@ require('mason-lspconfig').setup({
 		"html",                           --html
 		"jsonls",                         --json
 		"jdtls",                          --java
-		"java-test",                      --more java
-		"java-debug-adapter",             --even-more-java
 		"tsserver",                       --javascript
 		"kotlin_language_server",         --Kotlin
 		"texlab",                         --latex
