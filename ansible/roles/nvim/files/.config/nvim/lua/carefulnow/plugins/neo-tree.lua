@@ -38,29 +38,6 @@ return {
             end,
             { desc = "Open neo-tree [P]roject view" }
         );
-
-        vim.keymap.set('n', '<leader>o', function()
-                local reveal_file = vim.fn.expand('%.p')
-                if (reveal_file == '') then
-                    reveal_file = vim.fn.getcwd()
-                else
-                    local f = io.open(reveal_file, "r")
-                    if (f) then
-                        f.close(f)
-                    else
-                        reveal_file = vim.fn.getcwd()
-                    end
-                end
-                require('neo-tree.command').execute({
-                    action = "focus",
-                    source = "filesystem",
-                    position = "left",
-                    reveal_file = reveal_file,
-                    reveal_force_cwd = true,
-                })
-            end,
-            { desc = "Swap focus to the neo-tree project view" }
-        );
     end
 }
 

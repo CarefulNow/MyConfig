@@ -1,7 +1,7 @@
 ---
 - name: ensure .config directories exists
   file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/user"
+    path: "{{ lookup('env', 'HOME') }}/.config/nvim/lua/carefulnow/plugins"
     recurse: true
     state: directory
 
